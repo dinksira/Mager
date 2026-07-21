@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500" fill="none">
+  <rect width="600" height="500" rx="20" fill="url(#bgGrad)"/>
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#003366"/>
+      <stop offset="100%" stop-color="#001a33"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Decorative circles -->
+  <circle cx="80" cy="80" r="120" fill="rgba(254,104,17,.08)"/>
+  <circle cx="520" cy="420" r="160" fill="rgba(254,104,17,.06)"/>
+  <circle cx="450" cy="100" r="60" fill="rgba(254,104,17,.05)"/>
+
+  <!-- Laptop -->
+  <rect x="140" y="170" width="320" height="200" rx="12" fill="#1a2d47" stroke="rgba(255,255,255,.1)" stroke-width="2"/>
+  <rect x="160" y="190" width="280" height="150" rx="4" fill="#0f1a2e"/>
+  <!-- Screen content -->
+  <rect x="180" y="210" width="80" height="8" rx="4" fill="#FE6811" opacity=".8"/>
+  <rect x="180" y="230" width="120" height="6" rx="3" fill="rgba(255,255,255,.15)"/>
+  <rect x="180" y="248" width="100" height="6" rx="3" fill="rgba(255,255,255,.12)"/>
+  <rect x="180" y="266" width="140" height="6" rx="3" fill="rgba(255,255,255,.12)"/>
+  <rect x="180" y="290" width="60" height="30" rx="6" fill="#FE6811" opacity=".6"/>
+  <rect x="360" y="210" width="60" height="40" rx="6" fill="rgba(254,104,17,.15)"/>
+  <circle cx="390" cy="230" r="12" fill="rgba(254,104,17,.3)"/>
+  <!-- Laptop base -->
+  <rect x="130" y="370" width="340" height="10" rx="4" fill="#1a2d47"/>
+  <rect x="170" y="378" width="260" height="6" rx="3" fill="#0f1a2e"/>
+
+  <!-- Floating elements -->
+  <!-- Gear icon -->
+  <circle cx="510" cy="180" r="24" fill="rgba(254,104,17,.15)" stroke="#FE6811" stroke-width="2" stroke-dasharray="4 3"/>
+  <circle cx="510" cy="180" r="8" fill="#FE6811" opacity=".4"/>
+
+  <!-- Chart bars -->
+  <rect x="60" y="280" width="18" height="60" rx="4" fill="rgba(254,104,17,.5)"/>
+  <rect x="88" y="260" width="18" height="80" rx="4" fill="rgba(254,104,17,.7)"/>
+  <rect x="116" y="300" width="18" height="40" rx="4" fill="rgba(254,104,17,.3)"/>
+
+  <!-- People silhouettes -->
+  <circle cx="200" cy="130" r="16" fill="rgba(255,255,255,.15)"/>
+  <rect x="188" y="150" width="24" height="30" rx="8" fill="rgba(255,255,255,.1)"/>
+
+  <circle cx="300" cy="120" r="16" fill="rgba(255,255,255,.15)"/>
+  <rect x="288" y="140" width="24" height="30" rx="8" fill="rgba(255,255,255,.1)"/>
+
+  <circle cx="400" cy="130" r="16" fill="rgba(255,255,255,.15)"/>
+  <rect x="388" y="150" width="24" height="30" rx="8" fill="rgba(255,255,255,.1)"/>
+
+  <!-- Dots pattern -->
+  <g opacity=".06">
+    <circle cx="40" cy="40" r="3" fill="#fff"/>
+    <circle cx="60" cy="40" r="3" fill="#fff"/>
+    <circle cx="80" cy="40" r="3" fill="#fff"/>
+    <circle cx="40" cy="60" r="3" fill="#fff"/>
+    <circle cx="60" cy="60" r="3" fill="#fff"/>
+    <circle cx="80" cy="60" r="3" fill="#fff"/>
+    <circle cx="520" cy="440" r="3" fill="#fff"/>
+    <circle cx="540" cy="440" r="3" fill="#fff"/>
+    <circle cx="560" cy="440" r="3" fill="#fff"/>
+    <circle cx="520" cy="460" r="3" fill="#fff"/>
+    <circle cx="540" cy="460" r="3" fill="#fff"/>
+    <circle cx="560" cy="460" r="3" fill="#fff"/>
+  </g>
+
+  <!-- Connecting lines -->
+  <line x1="216" y1="145" x2="520" y2="180" stroke="rgba(254,104,17,.12)" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <line x1="316" y1="135" x2="180" y2="170" stroke="rgba(254,104,17,.12)" stroke-width="1.5" stroke-dasharray="4 4"/>
+</svg>

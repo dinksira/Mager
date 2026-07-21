@@ -1,0 +1,258 @@
+{
+  "nav": {
+    "about": "About",
+    "services": "Services",
+    "team": "Team",
+    "portfolio": "Portfolio",
+    "projects": "Projects",
+    "blog": "Blog",
+    "contact": "Contact",
+    "brand": "Mager."
+  },
+  "hero": {
+    "title": "Building digital",
+    "titleHighlight": "solutions",
+    "titleEnd": "that transform businesses",
+    "subtitle": "We deliver software, AI, cloud, and mobile solutions tailored to your business needs. From idea to deployment, we are your technology partner.",
+    "cta": "Get in Touch →",
+    "viewWork": "View Our Work",
+    "alt": "Office"
+  },
+  "about": {
+    "sectionTitle": "About us",
+    "sectionSubtitle": "We are a team of passionate technologists building the digital future of Africa.",
+    "heading": "Who we are",
+    "paragraph1": "Mager Software Solution PLC is a software company dedicated to crafting high-quality digital products. We blend deep technical expertise with creative thinking to deliver solutions that make a real impact.",
+    "paragraph2": "Our mission is to empower businesses with modern technology — whether through custom web platforms, mobile apps, AI-driven tools, or cloud-native infrastructure. We believe in long-term partnerships built on trust, transparency, and technical excellence.",
+    "statProjects": "Projects",
+    "statClients": "Clients",
+    "statYears": "Years",
+    "statProjectsValue": "50+",
+    "statClientsValue": "30+",
+    "statYearsValue": "5+",
+    "alt": "Mager Software team collaboration",
+    "values": [
+      { "title": "Mission", "desc": "Empower businesses with innovative, scalable technology solutions that drive growth." },
+      { "title": "Vision", "desc": "Be the most trusted software partner across Africa and beyond." },
+      { "title": "Integrity", "desc": "We uphold honesty, transparency, and ethical practices in everything we do." },
+      { "title": "Excellence", "desc": "We never settle — continuous improvement is at our core." }
+    ]
+  },
+  "services": {
+    "sectionTitle": "Our services",
+    "sectionSubtitle": "End-to-end technology services to bring your ideas to life.",
+    "learnMore": "Learn more →",
+    "items": [
+      {
+        "tag": "Engineering",
+        "title": "Software Development",
+        "desc": "We build custom web and desktop applications using modern frameworks like React, Node.js, and Next.js. Our team follows industry best practices — clean architecture, CI/CD, automated testing, and performance optimization — to deliver scalable, maintainable software.",
+        "features": ["Custom web applications & dashboards", "Desktop software & internal tools", "API development & third-party integrations", "Code reviews, testing & CI/CD setup"]
+      },
+      {
+        "tag": "Mobile",
+        "title": "Mobile App Development",
+        "desc": "Native and cross-platform mobile applications crafted for iOS and Android. We use Flutter, React Native, and native SDKs to deliver smooth, performant apps that users love — from MVPs to enterprise-grade solutions.",
+        "features": ["Cross-platform apps (Flutter, React Native)", "Native iOS & Android development", "App store deployment & management", "Push notifications & real-time sync"]
+      },
+      {
+        "tag": "Infrastructure",
+        "title": "Cloud Solutions",
+        "desc": "Cloud architecture design, migration, and managed services across AWS, Azure, and GCP. We help you modernize infrastructure, reduce costs, and scale with confidence — from lift-and-shift to cloud-native builds.",
+        "features": ["Cloud architecture & migration planning", "Kubernetes & container orchestration", "Serverless & event-driven systems", "Monitoring, security & cost optimization"]
+      },
+      {
+        "tag": "Intelligence",
+        "title": "AI & Machine Learning",
+        "desc": "Intelligent automation, predictive analytics, and custom ML model development. We turn data into decisions — from chatbots and recommendation engines to computer vision and NLP solutions.",
+        "features": ["Custom ML model development & training", "Natural language processing & chatbots", "Computer vision & document intelligence", "Predictive analytics & data pipelines"]
+      },
+      {
+        "tag": "Design",
+        "title": "UI/UX Design",
+        "desc": "User-centered design that balances aesthetics, usability, and business goals. We research, prototype, and test to create intuitive interfaces that delight users and drive engagement.",
+        "features": ["User research & usability testing", "Wireframing & interactive prototyping", "Visual design & design systems", "Accessibility & responsive design"]
+      },
+      {
+        "tag": "Advisory",
+        "title": "IT Consulting",
+        "desc": "Strategic technology advisory to help you make the right technical decisions. We assess your current stack, identify opportunities, and create a roadmap — whether you are scaling up, modernizing, or starting from scratch.",
+        "features": ["Technology stack assessment & roadmap", "Digital transformation strategy", "Architecture review & optimization", "Vendor evaluation & procurement support"]
+      }
+    ]
+  },
+  "team": {
+    "sectionTitle": "Our team",
+    "sectionSubtitle": "Talented professionals passionate about technology and innovation.",
+    "members": [
+      { "name": "Abebe Kebede", "role": "CEO & Founder", "desc": "Visionary leader with 15+ years in software and business strategy." },
+      { "name": "Sara Mulugeta", "role": "CTO", "desc": "Full-stack architect specializing in distributed systems and cloud." },
+      { "name": "Dawit Tadesse", "role": "Lead Designer", "desc": "Creative designer crafting beautiful and intuitive user experiences." },
+      { "name": "Hiwot Girma", "role": "Project Manager", "desc": "Ensuring every project delivers on time, on scope, and on budget." }
+    ]
+  },
+  "portfolio": {
+    "sectionTitle": "Selected work",
+    "sectionSubtitle": "A selection of projects we have delivered across various industries.",
+    "client": "Client",
+    "items": [
+      {
+        "tag": "Web Application",
+        "title": "ShopEthio",
+        "client": "Client: Ethiopian Retail Association",
+        "desc": "A full-featured e-commerce platform built for the Ethiopian market. ShopEthio handles everything from product catalog management and real-time inventory tracking to secure payment gateway integration and detailed sales analytics. The platform supports multiple vendors, order fulfillment workflows, and a customer loyalty system.",
+        "tech": ["React", "Node.js", "PostgreSQL", "Stripe", "Redis", "Docker"],
+        "resources": ["GitHub", "Figma", "Live Demo"],
+        "captions": ["Admin dashboard with real-time metrics", "Sales analytics & reporting", "Product catalog management", "Customer order dashboard"]
+      },
+      {
+        "tag": "Mobile Application",
+        "title": "GoMove",
+        "client": "Client: GoMove Transport PLC",
+        "desc": "A ride-hailing and logistics application with real-time GPS tracking, intelligent driver-passenger matching, and digital wallet payments. GoMove includes features like fare estimation, route optimization, ride scheduling, and a comprehensive admin dashboard for fleet management.",
+        "tech": ["Flutter", "Firebase", "Google Maps", "Stripe", "Node.js", "MongoDB"],
+        "resources": ["GitHub", "Figma", "App Store", "Play Store"],
+        "captions": ["Passenger app — booking a ride", "Real-time driver tracking interface", "Route map & navigation view", "Admin fleet management dashboard"]
+      },
+      {
+        "tag": "AI Solution",
+        "title": "SmartAssist",
+        "client": "Client: EthioTech Corp",
+        "desc": "An AI-powered customer service chatbot that handles inquiries in multiple languages including Amharic. SmartAssist uses natural language processing to understand customer intent, integrates with CRM systems, and can escalate complex issues to human agents. The system reduced response times by 80% for the client.",
+        "tech": ["Python", "TensorFlow", "FastAPI", "PostgreSQL", "Docker", "Azure"],
+        "resources": ["GitHub", "Figma", "API Docs"],
+        "captions": ["Chatbot conversation interface", "Sentiment analysis dashboard", "Multi-language support & NLP config"]
+      }
+    ]
+  },
+  "ongoing": {
+    "sectionTitle": "In progress",
+    "sectionSubtitle": "Projects we are currently building and shipping.",
+    "statusDevelopment": "In Development",
+    "statusTesting": "Testing",
+    "statusPlanning": "Planning",
+    "remaining": "remaining",
+    "items": [
+      {
+        "tag": "In Development",
+        "title": "Banking Dashboard",
+        "client": "Client: ABC Bank",
+        "desc": "A comprehensive real-time analytics dashboard for banking operations. The platform provides transaction monitoring, fraud detection alerts, financial reporting, and KPI tracking. Built with a focus on data security and low-latency updates, it enables banking executives to make informed decisions quickly.",
+        "tech": ["React", "D3.js", "Node.js", "PostgreSQL", "WebSocket", "Docker"],
+        "resources": ["GitHub", "Figma", "Project Board"],
+        "captions": ["Dashboard overview & KPI widgets", "Transaction monitoring & alerts", "Financial reporting module"]
+      },
+      {
+        "tag": "Testing",
+        "title": "Telemedicine Platform",
+        "client": "Client: HealthNet",
+        "desc": "An end-to-end telemedicine solution that connects patients with healthcare providers remotely. Features include HD video consultations, e-prescriptions, electronic health record (EHR) integration, appointment scheduling, and a mobile app for both patients and doctors.",
+        "tech": ["Flutter", "WebRTC", "Node.js", "MongoDB", "Socket.io", "Azure"],
+        "resources": ["GitHub", "Figma"],
+        "captions": ["Video consultation interface", "Patient mobile app", "Doctor scheduling dashboard"]
+      },
+      {
+        "tag": "Testing",
+        "title": "School Management System",
+        "client": "Client: Ministry of Education",
+        "desc": "A comprehensive school management platform designed for the national education system. It covers student admissions, grade management, attendance tracking, timetable scheduling, parent-teacher communication, and government reporting. The system serves over 500 schools nationwide.",
+        "tech": ["Next.js", "PostgreSQL", "Python", "FastAPI", "Docker", "Azure"],
+        "resources": ["GitHub", "Figma"],
+        "captions": ["Student portal dashboard", "Grade management system", "Attendance tracking & reports"]
+      },
+      {
+        "tag": "Planning",
+        "title": "Logistics Fleet Manager",
+        "client": "Client: FreightCo",
+        "desc": "A GPS-based fleet tracking and logistics optimization platform. Features include real-time vehicle tracking, route optimization, fuel consumption monitoring, driver performance scoring, delivery scheduling, and a client portal for shipment tracking.",
+        "tech": ["React Native", "Node.js", "PostgreSQL", "Google Maps API", "Redis", "Docker"],
+        "resources": ["GitHub", "Figma"],
+        "captions": ["Fleet tracking & GPS map view", "Route optimization panel", "Delivery performance analytics"]
+      }
+    ]
+  },
+  "blog": {
+    "sectionTitle": "Latest insights",
+    "sectionSubtitle": "Thoughts on technology, design, and building great products.",
+    "read": "Read →",
+    "posts": [
+      {
+        "date": "Jul 15, 2026",
+        "readTime": "5 min read",
+        "title": "Why Headless CMS is the Future of Web Development",
+        "author": "Abebe Kebede",
+        "authorRole": "CEO & Founder"
+      },
+      {
+        "date": "Jul 8, 2026",
+        "readTime": "4 min read",
+        "title": "Building Scalable APIs with Node.js and Express",
+        "author": "Sara Mulugeta",
+        "authorRole": "CTO"
+      },
+      {
+        "date": "Jun 28, 2026",
+        "readTime": "6 min read",
+        "title": "AI in Fintech: Opportunities and Challenges",
+        "author": "Dawit Tadesse",
+        "authorRole": "Lead Designer"
+      }
+    ]
+  },
+  "contact": {
+    "sectionTitle": "Get in touch",
+    "sectionSubtitle": "Have a project in mind? We would love to hear from you.",
+    "heading": "Contact",
+    "intro": "Reach out through any of the channels below or visit our office.",
+    "address": "Address",
+    "addressValue": "Bole Road, Addis Ababa, Ethiopia",
+    "phone": "Phone",
+    "phoneValue": "+251 911 234 567",
+    "email": "Email",
+    "emailValue": "hello@magersoft.com",
+    "hours": "Hours",
+    "hoursValue": "Mon - Fri: 8:00 AM - 6:00 PM",
+    "mapTitle": "Mager Software Solution PLC",
+    "mapAddress": "Bole Road, Addis Ababa",
+    "mapAttribution": "© OpenStreetMap contributors",
+    "formName": "Name",
+    "formNamePlaceholder": "Your name",
+    "formEmail": "Email",
+    "formEmailPlaceholder": "your@email.com",
+    "formSubject": "Subject",
+    "formSubjectPlaceholder": "How can we help?",
+    "formMessage": "Message",
+    "formMessagePlaceholder": "Tell us about your project...",
+    "send": "Send Message →",
+    "sending": "Sending...",
+    "sent": "Sent"
+  },
+  "footer": {
+    "description": "Mager Software Solution PLC delivers innovative software, AI, cloud, and mobile solutions that drive business transformation.",
+    "linksTitle": "Links",
+    "servicesTitle": "Services",
+    "contactTitle": "Contact",
+    "about": "About",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "blog": "Blog",
+    "softwareDev": "Software Development",
+    "mobileApps": "Mobile Apps",
+    "cloudSolutions": "Cloud Solutions",
+    "aiMl": "AI & ML",
+    "copyright": "© 2026 Mager Software Solution PLC. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  },
+  "common": {
+    "close": "Close",
+    "getInTouch": "Get in Touch →",
+    "themeToggle": "Toggle theme",
+    "switchLang": "Switch language",
+    "menu": "Menu",
+    "linkedin": "LinkedIn",
+    "facebook": "Facebook",
+    "twitter": "Twitter",
+    "instagram": "Instagram"
+  }
+}

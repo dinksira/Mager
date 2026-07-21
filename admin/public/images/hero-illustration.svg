@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 450" fill="none">
+  <!-- Code window -->
+  <rect x="60" y="60" width="380" height="260" rx="12" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.1)" stroke-width="1.5"/>
+  <circle cx="85" cy="85" r="6" fill="#ef4444"/>
+  <circle cx="108" cy="85" r="6" fill="#eab308"/>
+  <circle cx="131" cy="85" r="6" fill="#22c55e"/>
+  <!-- Code lines -->
+  <rect x="80" y="110" width="40" height="6" rx="3" fill="rgba(254,104,17,.5)"/>
+  <rect x="80" y="130" width="120" height="6" rx="3" fill="rgba(255,255,255,.15)"/>
+  <rect x="100" y="150" width="100" height="6" rx="3" fill="rgba(255,255,255,.12)"/>
+  <rect x="100" y="168" width="160" height="6" rx="3" fill="rgba(255,255,255,.12)"/>
+  <rect x="100" y="186" width="80" height="6" rx="3" fill="rgba(255,255,255,.1)"/>
+  <rect x="80" y="210" width="60" height="6" rx="3" fill="rgba(254,104,17,.4)"/>
+  <rect x="100" y="230" width="140" height="6" rx="3" fill="rgba(255,255,255,.1)"/>
+  <rect x="100" y="248" width="90" height="6" rx="3" fill="rgba(255,255,255,.08)"/>
+  <rect x="80" y="270" width="50" height="6" rx="3" fill="rgba(254,104,17,.3)"/>
+  <rect x="80" y="290" width="200" height="6" rx="3" fill="rgba(255,255,255,.08)"/>
+  <!-- Rocket -->
+  <g transform="translate(370, 150)">
+    <path d="M0 40 L-10 60 L10 60 Z" fill="rgba(254,104,17,.2)"/>
+    <rect x="-6" y="10" width="12" height="30" rx="4" fill="rgba(254,104,17,.15)"/>
+    <circle cx="0" cy="15" r="5" fill="#FE6811" opacity=".3"/>
+    <rect x="-2" y="60" width="4" height="12" rx="2" fill="rgba(255,255,255,.1)"/>
+  </g>
+  <!-- Floating elements -->
+  <rect x="40" y="360" width="60" height="20" rx="4" fill="rgba(254,104,17,.1)"/>
+  <rect x="120" y="360" width="40" height="20" rx="4" fill="rgba(254,104,17,.06)"/>
+  <circle cx="440" cy="360" r="12" fill="rgba(254,104,17,.08)"/>
+  <circle cx="460" cy="380" r="8" fill="rgba(254,104,17,.05)"/>
+  <!-- Dots -->
+  <g opacity=".04">
+    <circle cx="30" cy="30" r="3" fill="#fff"/>
+    <circle cx="50" cy="30" r="3" fill="#fff"/>
+    <circle cx="30" cy="50" r="3" fill="#fff"/>
+    <circle cx="50" cy="50" r="3" fill="#fff"/>
+    <circle cx="450" cy="420" r="3" fill="#fff"/>
+    <circle cx="470" cy="420" r="3" fill="#fff"/>
+    <circle cx="450" cy="440" r="3" fill="#fff"/>
+  </g>
+</svg>

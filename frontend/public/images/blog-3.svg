@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" fill="none">
+  <rect width="400" height="250" fill="url(#g3)"/>
+  <defs>
+    <linearGradient id="g3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e0e7ff"/>
+      <stop offset="100%" stop-color="#c7d2fe"/>
+    </linearGradient>
+  </defs>
+  <!-- AI / Brain illustration -->
+  <circle cx="200" cy="100" r="50" fill="rgba(0,51,102,.08)" stroke="rgba(254,104,17,.25)" stroke-width="2"/>
+  <circle cx="200" cy="100" r="30" fill="rgba(254,104,17,.08)" stroke="rgba(254,104,17,.2)" stroke-width="1.5"/>
+  <circle cx="200" cy="100" r="10" fill="rgba(254,104,17,.15)"/>
+  <!-- Neural connections -->
+  <circle cx="140" cy="80" r="6" fill="rgba(0,51,102,.25)"/>
+  <circle cx="260" cy="80" r="6" fill="rgba(0,51,102,.25)"/>
+  <circle cx="150" cy="150" r="6" fill="rgba(0,51,102,.25)"/>
+  <circle cx="250" cy="150" r="6" fill="rgba(0,51,102,.25)"/>
+  <circle cx="130" cy="115" r="6" fill="rgba(0,51,102,.25)"/>
+  <circle cx="270" cy="115" r="6" fill="rgba(0,51,102,.25)"/>
+  <!-- Connection lines -->
+  <line x1="146" y1="80" x2="190" y2="95" stroke="rgba(254,104,17,.15)" stroke-width="1.5"/>
+  <line x1="254" y1="80" x2="210" y2="95" stroke="rgba(254,104,17,.15)" stroke-width="1.5"/>
+  <line x1="156" y1="150" x2="190" y2="110" stroke="rgba(254,104,17,.15)" stroke-width="1.5"/>
+  <line x1="244" y1="150" x2="210" y2="110" stroke="rgba(254,104,17,.15)" stroke-width="1.5"/>
+  <line x1="136" y1="115" x2="190" y2="100" stroke="rgba(254,104,17,.15)" stroke-width="1.5"/>
+  <line x1="264" y1="115" x2="210" y2="100" stroke="rgba(254,104,17,.15)" stroke-width="1.5"/>
+  <!-- Data nodes bottom -->
+  <rect x="100" y="180" width="20" height="20" rx="4" fill="rgba(0,51,102,.12)"/>
+  <rect x="140" y="180" width="20" height="20" rx="4" fill="rgba(0,51,102,.08)"/>
+  <rect x="240" y="180" width="20" height="20" rx="4" fill="rgba(0,51,102,.12)"/>
+  <rect x="280" y="180" width="20" height="20" rx="4" fill="rgba(0,51,102,.08)"/>
+</svg>
