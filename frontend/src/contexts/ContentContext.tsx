@@ -22,9 +22,7 @@ const POLL_INTERVAL = 10000;
 
 function mergeOverrides(data: ContentOverrides) {
   for (const [key, value] of Object.entries(data)) {
-    if (key.startsWith('nav.') || key.startsWith('hero.') || key.startsWith('about.') || key.startsWith('common.')) {
-      i18n.addResource('en', 'common', key, value);
-    }
+    i18n.addResource('en', 'common', key, value);
   }
 }
 

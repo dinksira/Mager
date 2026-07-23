@@ -40,8 +40,8 @@ export default function PortfolioModal({ isOpen, onClose, data }: PortfolioModal
           <h2>{data.title}</h2>
           <p className="client">{data.client}</p>
           <p>{data.desc}</p>
-          <TechStack items={data.tech} />
-          {data.resources.length > 0 && (
+          <TechStack items={data.tech ?? []} />
+          {data.resources?.length > 0 && (
             <div className="modal-resources">
               {data.resources.map((r, i) => (
                 <a key={i} href={r.url} target="_blank" dangerouslySetInnerHTML={{ __html: r.icon + r.label }} />

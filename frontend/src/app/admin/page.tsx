@@ -11,6 +11,8 @@ import Team from '@/components/sections/Team';
 import Portfolio from '@/components/sections/Portfolio';
 import Ongoing from '@/components/sections/Ongoing';
 import Blog from '@/components/sections/Blog';
+import Testimonials from '@/components/sections/Testimonials';
+import Partners from '@/components/sections/Partners';
 import Contact from '@/components/sections/Contact';
 import ServiceModal from '@/components/modals/ServiceModal';
 import PortfolioModal from '@/components/modals/PortfolioModal';
@@ -22,8 +24,35 @@ import { ongoingData } from '@/data/ongoing';
 import { blogData } from '@/data/blog';
 import EditModeToggle from '@/components/admin/EditModeToggle';
 import PublishButton from '@/components/admin/PublishButton';
+import { useEditMode } from '@/contexts/EditModeContext';
 
 export default function AdminPage() {
+  const { editedContent } = useEditMode();
+
+  const getService = (i: number) => {
+    try {
+      const raw = editedContent['services.items'];
+      if (raw) {
+        const items = JSON.parse(raw);
+        if (items?.[i]) {
+          const s = items[i];
+          return { ...servicesData[i], ...s, features: s.features ?? [], tag: s.tag ?? '' };
+        }
+      }
+    } catch {}
+    return servicesData[i];
+  };
+
+  const getItem = (key: string, fallback: any[], i: number) => {
+    try {
+      const raw = editedContent[key];
+      if (raw) {
+        const items = JSON.parse(raw);
+        if (items?.[i]) return { ...fallback[i], ...items[i] };
+      }
+    } catch {}
+    return fallback[i];
+  };
   const [serviceModalOpen, setServiceModalOpen] = useState(false);
   const [serviceIndex, setServiceIndex] = useState(0);
   const [portfolioModalOpen, setPortfolioModalOpen] = useState(false);
@@ -40,8 +69,12 @@ export default function AdminPage() {
           entry.target.classList.add('visible');
         }
       });
-    }, { threshold: 0.15 });
-    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    }, { threshold: 0.1 });
+    document.querySelectorAll('[data-reveal]').forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 80) el.classList.add('visible');
+      else observer.observe(el);
+    });
     return () => observer.disconnect();
   }, []);
 
@@ -50,7 +83,7 @@ export default function AdminPage() {
       <EditModeToggle />
       <PublishButton />
       <Navbar themeToggle={<ThemeToggle />} />
-      <main>
+      <main style={{ paddingTop: 40 }}>
         <Hero />
         <About />
         <Services onServiceClick={(i) => { setServiceIndex(i); setServiceModalOpen(true); }} />
@@ -58,14 +91,16 @@ export default function AdminPage() {
         <Portfolio onPortfolioClick={(i) => { setPortfolioIndex(i); setPortfolioModalOpen(true); }} />
         <Ongoing onOngoingClick={(i) => { setOngoingIndex(i); setOngoingModalOpen(true); }} />
         <Blog onBlogClick={(i) => { setBlogIndex(i); setBlogModalOpen(true); }} />
+        <Testimonials />
+        <Partners />
         <Contact />
       </main>
       <Footer />
 
-      <ServiceModal isOpen={serviceModalOpen} onClose={() => setServiceModalOpen(false)} data={servicesData[serviceIndex] || null} />
-      <PortfolioModal isOpen={portfolioModalOpen} onClose={() => setPortfolioModalOpen(false)} data={portfolioData[portfolioIndex] || null} />
-      <OngoingModal isOpen={ongoingModalOpen} onClose={() => setOngoingModalOpen(false)} data={ongoingData[ongoingIndex] || null} />
-      <BlogModal isOpen={blogModalOpen} onClose={() => setBlogModalOpen(false)} data={blogData[blogIndex] || null} />
+      <ServiceModal isOpen={serviceModalOpen} onClose={() => setServiceModalOpen(false)} data={getService(serviceIndex)} />
+      <PortfolioModal isOpen={portfolioModalOpen} onClose={() => setPortfolioModalOpen(false)} data={getItem('portfolio.items', portfolioData, portfolioIndex)} />
+      <OngoingModal isOpen={ongoingModalOpen} onClose={() => setOngoingModalOpen(false)} data={getItem('ongoing.items', ongoingData, ongoingIndex)} />
+      <BlogModal isOpen={blogModalOpen} onClose={() => setBlogModalOpen(false)} data={getItem('blog.posts', blogData, blogIndex)} />
     </>
   );
 }

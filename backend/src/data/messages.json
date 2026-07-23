@@ -1,0 +1,20 @@
+[
+  {
+    "id": "demo001",
+    "name": "Helen W.",
+    "email": "helen@example.com",
+    "subject": "Partnership Inquiry",
+    "message": "Hi Mager, we love your work! Would love to discuss a potential partnership for our upcoming fintech platform. Let's connect!",
+    "createdAt": "2026-07-20T10:30:00.000Z",
+    "read": true
+  },
+  {
+    "id": "demo002",
+    "name": "Tadesse A.",
+    "email": "tadesse@example.com",
+    "subject": "Website Redesign",
+    "message": "I'm looking to redesign my e-commerce store. Your portfolio looks amazing! Can we schedule a call to discuss?",
+    "createdAt": "2026-07-19T14:15:00.000Z",
+    "read": false
+  }
+]

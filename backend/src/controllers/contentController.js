@@ -1,17 +1,24 @@
 const contentService = require('../services/contentService');
 
-function getContent(req, res) {
-  const content = contentService.readAll();
-  res.json(content);
+async function getContent(req, res) {
+  try {
+    const content = await contentService.readAll();
+    res.json(content);
+  } catch (err) {
+    console.error('Get content error:', err);
+    res.status(500).json({ ok: false, error: 'Failed to load content' });
+  }
 }
 
-function saveContent(req, res) {
+async function saveContent(req, res) {
   try {
     const { content } = req.body;
     if (!content || typeof content !== 'object') {
       return res.status(400).json({ ok: false, error: 'Invalid content payload' });
     }
-    contentService.saveAll(content);
+    const existing = await contentService.readAll();
+    const merged = { ...existing, ...content };
+    await contentService.saveAll(merged);
     res.json({ ok: true });
   } catch (err) {
     console.error('Save error:', err);
@@ -20,6 +27,14 @@ function saveContent(req, res) {
 }
 
 function streamEvents(req, res) {
+  let destroyed = false;
+
+  const safeWrite = (data) => {
+    if (!destroyed) {
+      try { res.write(data); } catch {}
+    }
+  };
+
   res.writeHead(200, {
     'Content-Type': 'text/event-stream',
     'Cache-Control': 'no-cache',
@@ -27,22 +42,37 @@ function streamEvents(req, res) {
     'Access-Control-Allow-Origin': '*',
   });
 
-  res.write('event: connected\ndata: {}\n\n');
+  safeWrite('event: connected\ndata: {}\n\n');
 
   const onUpdate = (content) => {
-    res.write(`event: content-updated\ndata: ${JSON.stringify(content)}\n\n`);
+    safeWrite(`event: content-updated\ndata: ${JSON.stringify(content)}\n\n`);
   };
 
   contentService.emitter.on('content-updated', onUpdate);
 
   const heartbeat = setInterval(() => {
-    res.write(': heartbeat\n\n');
+    safeWrite(': heartbeat\n\n');
   }, 15000);
 
+  res.on('error', () => { destroyed = true; });
+
   req.on('close', () => {
+    destroyed = true;
     contentService.emitter.off('content-updated', onUpdate);
     clearInterval(heartbeat);
   });
 }
 
-module.exports = { getContent, saveContent, streamEvents };
+function uploadImage(req, res) {
+  try {
+    if (!req.file) {
+      return res.status(400).json({ ok: false, error: 'No file uploaded' });
+    }
+    res.json({ ok: true, filename: req.file.filename });
+  } catch (err) {
+    console.error('Upload error:', err);
+    res.status(500).json({ ok: false, error: 'Failed to upload' });
+  }
+}
+
+module.exports = { getContent, saveContent, streamEvents, uploadImage };

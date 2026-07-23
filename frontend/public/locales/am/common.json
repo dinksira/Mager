@@ -1,5 +1,6 @@
 {
   "nav": {
+    "home": "መነሻ",
     "about": "ስለ እኛ",
     "services": "አገልግሎቶች",
     "team": "ቡድን",
@@ -16,7 +17,8 @@
     "subtitle": "ለንግድ ፍላጎቶችዎ የተበጀ ሶፍትዌር፣ AI፣ ክላውድ እና ሞባይል መፍትሄዎችን እናቀርባለን። ከሀሳብ እስከ አተገባበር፣ የእርስዎ የቴክኖሎጂ አጋር ነን።",
     "cta": "ያግኙን →",
     "viewWork": "ስራችንን ይመልከቱ",
-    "alt": "ቢሮ"
+    "alt": "ቢሮ",
+    "badge": "ከራዕይ ወደ ዲጂታል እውነታ"
   },
   "about": {
     "sectionTitle": "ስለ እኛ",
@@ -199,6 +201,9 @@
       }
     ]
   },
+  "projects": {
+    "sectionSubtitle": "ያደረስናቸው እና በአሁኑ ጊዜ እየገነባን ያሉ የፕሮጀክቶች ምርጫ"
+  },
   "contact": {
     "sectionTitle": "ያግኙን",
     "sectionSubtitle": "በአእምሮዎ ውስጥ ፕሮጀክት አለዎት? ከእርስዎ መስማት ደስ ይለናል።",
@@ -216,6 +221,8 @@
     "mapAddress": "ቦሌ መንገድ፣ አዲስ አበባ",
     "mapAttribution": "© የOpenStreetMap አበርካቾች",
     "formName": "ስም",
+    "error": "የሆነ ችግር ተፈጥሯል። እባክዎ እንደገና ይሞክሩ።",
+    "formTitle": "መልእክት ይላኩ",
     "formNamePlaceholder": "ስምዎ",
     "formEmail": "ኢሜይል",
     "formEmailPlaceholder": "your@email.com",
@@ -244,6 +251,14 @@
     "privacy": "የግላዊነት ፖሊሲ",
     "terms": "የአገልግሎት ውሎች"
   },
+  "testimonials": {
+    "sectionTitle": "ደንበኞቻችን ምን ይላሉ",
+    "sectionSubtitle": "አብረን የሠራናቸው ድርጅቶች እና ተቋማት ምስክርነት።"
+  },
+  "partners": {
+    "sectionTitle": "እምነት ያደረብን",
+    "sectionSubtitle": "ከእኛ ጋር አጋር የሆኑ ኩባንያዎች እና ድርጅቶች።"
+  },
   "common": {
     "close": "ዝጋ",
     "getInTouch": "ያግኙን →",
@@ -253,6 +268,12 @@
     "linkedin": "ሊንክድኢን",
     "facebook": "ፌስቡክ",
     "twitter": "ትዊተር",
-    "instagram": "ኢንስታግራም"
+    "instagram": "ኢንስታግራም",
+    "learnMore": "ተጨማሪ ይወቁ",
+    "viewAll": "ሁሉንም አገልግሎቶች ይመልከቱ",
+    "ctaTag": "አብረን እንስራ",
+    "ctaTitle": "በአእምሮዎ ውስጥ ፕሮጀክት አለዎት?",
+    "ctaText": "ከእርስዎ መስማት ደስ ይለናል። ያግኙን እና አብረን ጥሩ ነገር እንገንባ።",
+    "ctaButton": "ፕሮጀክት ይጀምሩ"
   }
 }

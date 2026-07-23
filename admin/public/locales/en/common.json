@@ -1,5 +1,6 @@
 {
   "nav": {
+    "home": "Home",
     "about": "About",
     "services": "Services",
     "team": "Team",
@@ -13,10 +14,12 @@
     "title": "Building digital",
     "titleHighlight": "solutions",
     "titleEnd": "that transform businesses",
+    "wordmark": "Mager",
     "subtitle": "We deliver software, AI, cloud, and mobile solutions tailored to your business needs. From idea to deployment, we are your technology partner.",
     "cta": "Get in Touch →",
     "viewWork": "View Our Work",
-    "alt": "Office"
+    "alt": "Office",
+    "badge": "From Vision to Digital Reality"
   },
   "about": {
     "sectionTitle": "About us",
@@ -199,6 +202,9 @@
       }
     ]
   },
+  "projects": {
+    "sectionSubtitle": "A selection of projects we have delivered and are currently building."
+  },
   "contact": {
     "sectionTitle": "Get in touch",
     "sectionSubtitle": "Have a project in mind? We would love to hear from you.",
@@ -216,6 +222,8 @@
     "mapAddress": "Bole Road, Addis Ababa",
     "mapAttribution": "© OpenStreetMap contributors",
     "formName": "Name",
+    "error": "Something went wrong. Please try again.",
+    "formTitle": "Send a Message",
     "formNamePlaceholder": "Your name",
     "formEmail": "Email",
     "formEmailPlaceholder": "your@email.com",
@@ -244,6 +252,14 @@
     "privacy": "Privacy Policy",
     "terms": "Terms of Service"
   },
+  "testimonials": {
+    "sectionTitle": "What our clients say",
+    "sectionSubtitle": "Hear from the businesses and organizations we have had the privilege to work with."
+  },
+  "partners": {
+    "sectionTitle": "Trusted by",
+    "sectionSubtitle": "Companies and organizations that have partnered with us."
+  },
   "common": {
     "close": "Close",
     "getInTouch": "Get in Touch →",
@@ -253,6 +269,12 @@
     "linkedin": "LinkedIn",
     "facebook": "Facebook",
     "twitter": "Twitter",
-    "instagram": "Instagram"
+    "instagram": "Instagram",
+    "learnMore": "Learn more",
+    "viewAll": "View all services",
+    "ctaTag": "Let's work together",
+    "ctaTitle": "Have a project in mind?",
+    "ctaText": "We'd love to hear from you. Get in touch and let's build something great together.",
+    "ctaButton": "Start a Project"
   }
 }

@@ -56,7 +56,7 @@ export default function Editable({ path, type = 'text', children, className = ''
   if (editing) {
     if (type === 'textarea' || type === 'rich-text') {
       return (
-        <div className="editable-wrap">
+        <span className="editable-wrap">
           <textarea
             ref={inputRef as any}
             className="editable-input editable-textarea"
@@ -65,11 +65,11 @@ export default function Editable({ path, type = 'text', children, className = ''
             onBlur={handleSave}
             onKeyDown={handleKeyDown}
           />
-        </div>
+        </span>
       );
     }
     return (
-      <div className="editable-wrap">
+      <span className="editable-wrap">
         <input
           ref={inputRef as any}
           className="editable-input"
@@ -79,7 +79,7 @@ export default function Editable({ path, type = 'text', children, className = ''
           onBlur={handleSave}
           onKeyDown={handleKeyDown}
         />
-      </div>
+      </span>
     );
   }
 

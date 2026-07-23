@@ -3,8 +3,10 @@
 import { useState } from 'react';
 import { useEditMode } from '@/contexts/EditModeContext';
 
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || process.env.BACKEND_URL || 'http://localhost:4000';
+
 export default function PublishButton() {
-  const { editedContent, dirty, markPublished } = useEditMode();
+  const { editedContent, dirty, slidesDirty, markPublished, setSlidesDirty } = useEditMode();
   const [publishing, setPublishing] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
 
@@ -12,13 +14,20 @@ export default function PublishButton() {
     setPublishing(true);
     setToast(null);
     try {
-      const res = await fetch('/api/admin/save', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ content: editedContent }),
-      });
-      if (!res.ok) throw new Error('Save failed');
-      markPublished();
+      if (dirty) {
+        const res = await fetch('/api/admin/save', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ content: editedContent }),
+        });
+        if (!res.ok) throw new Error('Save failed');
+        markPublished();
+      }
+      if (slidesDirty) {
+        const res = await fetch(`${BACKEND_URL}/api/slides/publish`, { method: 'POST' });
+        if (!res.ok) throw new Error('Slide publish failed');
+        setSlidesDirty(false);
+      }
       setToast('Published successfully');
     } catch {
       setToast('Failed to publish');
@@ -28,7 +37,7 @@ export default function PublishButton() {
     }
   };
 
-  if (!dirty) return null;
+  if (!dirty && !slidesDirty) return null;
 
   return (
     <>

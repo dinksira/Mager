@@ -1,6 +1,11 @@
 'use client';
 import { useTranslation } from 'react-i18next';
-import { valuesData } from '@/data/values';
+import EditableImage from '@/components/admin/EditableImage';
+import Editable from '@/components/admin/Editable';
+import StatsEditor from '@/components/admin/StatsEditor';
+import ValuesEditor from '@/components/admin/ValuesEditor';
+
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || process.env.BACKEND_URL || 'http://localhost:4000';
 
 export default function About() {
   const { t } = useTranslation();
@@ -8,32 +13,21 @@ export default function About() {
   return (
     <section className="section" id="about">
       <div className="container">
-        <h2 className="section-title fade-up">{t('about.sectionTitle')}</h2>
-        <p className="section-subtitle fade-up">{t('about.sectionSubtitle')}</p>
+        <div className="section-tag" data-reveal="up"><Editable path="about.sectionTitle">{t('about.sectionTitle')}</Editable></div>
+        <h2 className="section-title" data-reveal="up"><Editable path="about.heading">{t('about.heading')}</Editable></h2>
+
         <div className="about-grid">
-          <div className="about-image fade-up">
-            <img src="/images/collabrtaion.jpg" alt={t('about.alt')} />
+          <div className="about-image" data-reveal="up">
+            <EditableImage path="about.image" src={`${BACKEND_URL}/uploads/collabrtaion.jpg`} alt={t('about.alt')} />
           </div>
-          <div className="about-text fade-up">
-            <h2>{t('about.heading')}</h2>
-            <p>{t('about.paragraph1')}</p>
-            <p>{t('about.paragraph2')}</p>
-            <div className="about-stats">
-              <div><div className="stat-number">{t('about.statProjectsValue')}</div><div className="stat-label">{t('about.statProjects')}</div></div>
-              <div><div className="stat-number">{t('about.statClientsValue')}</div><div className="stat-label">{t('about.statClients')}</div></div>
-              <div><div className="stat-number">{t('about.statYearsValue')}</div><div className="stat-label">{t('about.statYears')}</div></div>
-            </div>
+          <div className="about-text" data-reveal="up">
+            <div className="about-text-p"><Editable path="about.paragraph1" type="textarea">{t('about.paragraph1')}</Editable></div>
+            <div className="about-text-p"><Editable path="about.paragraph2" type="textarea">{t('about.paragraph2')}</Editable></div>
+            <StatsEditor />
           </div>
         </div>
-        <div className="values-grid">
-          {valuesData.map((v, i) => (
-            <div key={i} className="value-card fade-up">
-              <span className="icon-s" dangerouslySetInnerHTML={{ __html: v.icon }} />
-              <h4>{t(`about.values.${i}.title`)}</h4>
-              <p>{t(`about.values.${i}.desc`)}</p>
-            </div>
-          ))}
-        </div>
+
+        <ValuesEditor />
       </div>
     </section>
   );

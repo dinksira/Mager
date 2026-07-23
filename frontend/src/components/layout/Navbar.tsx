@@ -1,55 +1,58 @@
 'use client';
-import { useEffect } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
-import { useScrollSpy } from '@/hooks/useScrollSpy';
 import { useLanguage } from '@/hooks/useLanguage';
+import { useContent } from '@/contexts/ContentContext';
 
 const navItems = [
-  { id: 'about', key: 'nav.about' },
-  { id: 'services', key: 'nav.services' },
-  { id: 'team', key: 'nav.team' },
-  { id: 'portfolio', key: 'nav.portfolio' },
-  { id: 'ongoing', key: 'nav.projects' },
-  { id: 'blog', key: 'nav.blog' },
-  { id: 'contact', key: 'nav.contact' },
+  { href: '/about', key: 'nav.about' },
+  { href: '/services', key: 'nav.services' },
+  { href: '/team', key: 'nav.team' },
+  { href: '/projects', key: 'nav.portfolio' },
+  { href: '/blog', key: 'nav.blog' },
 ];
 
 export default function Navbar({ themeToggle }: { themeToggle: React.ReactNode }) {
+  const pathname = usePathname();
   const { t } = useTranslation();
-  const activeId = useScrollSpy(navItems.map(n => n.id));
+  const { overrides } = useContent();
   const { toggle: toggleLang } = useLanguage();
 
-  useEffect(() => {
-    const links = document.querySelectorAll('.nav-links a');
-    const handler = () => document.getElementById('navLinks')?.classList.remove('open');
-    links.forEach(link => link.addEventListener('click', handler));
-    return () => links.forEach(link => link.removeEventListener('click', handler));
-  }, []);
+  const val = (key: string) => overrides[key] || t(key);
+
+  const isActive = (href: string) => {
+    if (href === '/') return pathname === '/';
+    return pathname.startsWith(href);
+  };
 
   return (
-    <nav>
-      <div className="container">
-        <a href="#" className="logo">{t('nav.brand')}<span>.</span></a>
-        <ul className="nav-links" id="navLinks">
-          {navItems.map(item => (
-            <li key={item.id}>
-              <a
-                href={`#${item.id}`}
-                className={activeId === item.id ? 'active' : ''}
-              >
-                {t(item.key)}
-              </a>
-            </li>
-          ))}
-          <li className="nav-actions">
-            <button className="nav-btn lang-btn" id="langToggle" onClick={toggleLang} aria-label={t('common.switchLang')}>EN</button>
-            {themeToggle}
+    <nav className="capsule-nav">
+      <Link href="/" className="logo-link">
+        <img src="/magerlogo.svg" alt="Mager" className="logo-img" />
+        <span className="logo-text">Mager Software PLC</span>
+      </Link>
+      <ul className="nav-links-c" id="navLinksC">
+        {navItems.map(item => (
+          <li key={item.href}>
+            <Link
+              href={item.href}
+              className={isActive(item.href) ? 'active' : ''}
+              onClick={() => document.getElementById('navLinksC')?.classList.remove('open')}
+            >
+              {val(item.key)}
+            </Link>
           </li>
-        </ul>
-        <button className="hamburger" id="hamburger" onClick={() => document.getElementById('navLinks')?.classList.toggle('open')} aria-label={t('common.menu')}>
-          <span></span><span></span><span></span>
-        </button>
+        ))}
+      </ul>
+      <div className="nav-btn-wrap">
+        <Link href="/contact" className="btn-contact">Contact</Link>
+        <button className="nav-btn-ghost lang-btn" onClick={toggleLang} aria-label={t('common.switchLang')}>EN</button>
+        {themeToggle}
       </div>
+      <button className="hamburger-c" id="hamburgerC" onClick={() => document.getElementById('navLinksC')?.classList.toggle('open')} aria-label={t('common.menu')}>
+        <span></span><span></span><span></span>
+      </button>
     </nav>
   );
 }

@@ -1,7 +1,6 @@
 export interface BlogData {
   image: string;
   date: string;
-  readTime: string;
   title: string;
   author: string;
   authorRole: string;
@@ -13,7 +12,6 @@ export const blogData: BlogData[] = [
   {
     image: 'images/blog-cms.jpg',
     date: 'Jul 15, 2026',
-    readTime: '5 min read',
     title: 'Why Headless CMS is the Future of Web Development',
     author: 'Abebe Kebede',
     authorRole: 'CEO & Founder',
@@ -23,7 +21,6 @@ export const blogData: BlogData[] = [
   {
     image: 'images/blog-api.jpg',
     date: 'Jul 8, 2026',
-    readTime: '4 min read',
     title: 'Building Scalable APIs with Node.js and Express',
     author: 'Sara Mulugeta',
     authorRole: 'CTO',
@@ -33,7 +30,6 @@ export const blogData: BlogData[] = [
   {
     image: 'images/blog-fintech.jpg',
     date: 'Jun 28, 2026',
-    readTime: '6 min read',
     title: 'AI in Fintech: Opportunities and Challenges',
     author: 'Dawit Tadesse',
     authorRole: 'Lead Designer',

@@ -1,7 +1,7 @@
 'use client';
 import { useTranslation } from 'react-i18next';
-import { teamData } from '@/data/team';
-import TeamCard from '@/components/cards/TeamCard';
+import Editable from '@/components/admin/Editable';
+import TeamEditor from '@/components/admin/TeamEditor';
 
 export default function Team() {
   const { t } = useTranslation();
@@ -9,19 +9,9 @@ export default function Team() {
   return (
     <section className="section" id="team">
       <div className="container">
-        <h2 className="section-title fade-up">{t('team.sectionTitle')}</h2>
-        <p className="section-subtitle fade-up">{t('team.sectionSubtitle')}</p>
-        <div className="team-grid">
-          {teamData.map((tm, i) => (
-            <TeamCard
-              key={i}
-              image={tm.image}
-              name={t(`team.members.${i}.name`)}
-              role={t(`team.members.${i}.role`)}
-              desc={t(`team.members.${i}.desc`)}
-            />
-          ))}
-        </div>
+        <div className="section-tag" data-reveal="up"><Editable path="team.sectionTitle">{t('team.sectionTitle')}</Editable></div>
+        <h2 className="section-title" data-reveal="up"><Editable path="team.sectionSubtitle">{t('team.sectionSubtitle')}</Editable></h2>
+        <TeamEditor />
       </div>
     </section>
   );

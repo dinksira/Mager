@@ -13,6 +13,8 @@ interface EditModeContextType {
   editMode: boolean;
   toggleEditMode: () => void;
   dirty: boolean;
+  slidesDirty: boolean;
+  setSlidesDirty: (d: boolean) => void;
   editedContent: EditedContent;
   publishedContent: EditedContent;
   updateContent: (path: string, value: string) => void;
@@ -21,7 +23,7 @@ interface EditModeContextType {
   hasDraft: boolean;
   loadDraft: () => void;
   discardDraft: () => void;
-  debugState: () => void; // Add debug function to interface
+  debugState: () => void;
 }
 
 const EditModeContext = createContext<EditModeContextType | null>(null);
@@ -31,6 +33,7 @@ export function EditModeProvider({ children }: { children: ReactNode }) {
   const [editedContent, setEditedContent] = useState<EditedContent>({});
   const [publishedContent, setPublishedContent] = useState<EditedContent>({});
   const [hasDraft, setHasDraft] = useState(false);
+  const [slidesDirty, setSlidesDirty] = useState(false);
   const initialized = useRef(false);
 
   // Load published content from backend on mount
@@ -150,10 +153,11 @@ export function EditModeProvider({ children }: { children: ReactNode }) {
   return (
     <EditModeContext.Provider value={{
       editMode, toggleEditMode, dirty,
+      slidesDirty, setSlidesDirty,
       editedContent, publishedContent,
       updateContent, markPublished, resetContent,
       hasDraft, loadDraft, discardDraft,
-      debugState, // Add debug function
+      debugState,
     }}>
       {children}
     </EditModeContext.Provider>

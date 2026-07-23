@@ -1,29 +1,17 @@
 'use client';
 import { useTranslation } from 'react-i18next';
-import { blogData } from '@/data/blog';
-import BlogCard from '@/components/cards/BlogCard';
+import Editable from '@/components/admin/Editable';
+import BlogEditor from '@/components/admin/BlogEditor';
 
 export default function Blog({ onBlogClick }: { onBlogClick: (index: number) => void }) {
   const { t } = useTranslation();
 
   return (
-    <section className="section" id="blog" style={{ paddingTop: 0 }}>
+    <section className="section section--alt" id="blog">
       <div className="container">
-        <h2 className="section-title fade-up">{t('blog.sectionTitle')}</h2>
-        <p className="section-subtitle fade-up">{t('blog.sectionSubtitle')}</p>
-        <div className="blog-grid">
-          {blogData.map((b, i) => (
-            <BlogCard
-              key={i}
-              image={b.image}
-              date={t(`blog.posts.${i}.date`)}
-              readTime={t(`blog.posts.${i}.readTime`)}
-              title={t(`blog.posts.${i}.title`)}
-              desc={t(`blog.posts.${i}.title`)}
-              onClick={() => onBlogClick(i)}
-            />
-          ))}
-        </div>
+        <div className="section-tag" data-reveal="up"><Editable path="blog.sectionTitle">{t('blog.sectionTitle')}</Editable></div>
+        <h2 className="section-title" data-reveal="up"><Editable path="blog.sectionSubtitle">{t('blog.sectionSubtitle')}</Editable></h2>
+        <BlogEditor onBlogClick={onBlogClick} />
       </div>
     </section>
   );
