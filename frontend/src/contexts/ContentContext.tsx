@@ -34,6 +34,26 @@ function applyContent(data: ContentOverrides, setOverrides: (d: ContentOverrides
   mergeOverrides(data);
 }
 
+function createLanguageAwareProxy(data: ContentOverrides) {
+  return new Proxy(data, {
+    get(target, prop) {
+      if (typeof prop !== 'string') return Reflect.get(target, prop);
+      
+      const currentLang = i18n.language;
+      if (currentLang === 'en') {
+        return target[prop];
+      }
+      
+      const hasTranslation = i18n.exists(prop);
+      if (hasTranslation) {
+        return undefined;
+      }
+      
+      return target[prop];
+    }
+  });
+}
+
 export function ContentProvider({ children }: { children: ReactNode }) {
   const [overrides, setOverrides] = useState<ContentOverrides>({});
   const [loading, setLoading] = useState(true);
@@ -71,8 +91,10 @@ export function ContentProvider({ children }: { children: ReactNode }) {
     return () => { active = false; es.close(); clearInterval(interval); };
   }, []);
 
+  const proxyOverrides = createLanguageAwareProxy(overrides);
+
   return (
-    <ContentContext.Provider value={{ overrides, loading }}>
+    <ContentContext.Provider value={{ overrides: proxyOverrides, loading }}>
       {children}
     </ContentContext.Provider>
   );

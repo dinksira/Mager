@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect, ReactNode } from 'react';
 import { useEditMode } from '@/contexts/EditModeContext';
+import { useTranslation } from 'react-i18next';
 
 interface EditableProps {
   path: string;
@@ -14,7 +15,28 @@ export default function Editable({ path, type = 'text', children, className = ''
   const { editMode, editedContent, publishedContent, updateContent } = useEditMode();
   const [editing, setEditing] = useState(false);
   const [value, setValue] = useState('');
-  const displayed = editedContent[path] ?? publishedContent[path] ?? children;
+  const { i18n } = useTranslation();
+  const currentLang = i18n.language;
+
+  // Resolve content dynamically based on current language
+  const getContent = () => {
+    const draft = editedContent[path];
+    const pub = publishedContent[path];
+    
+    if (currentLang === 'en') {
+      return draft ?? pub ?? children;
+    }
+    
+    // For Amharic (or non-English), check if a translation exists in static files
+    const hasTranslation = i18n.exists(path);
+    if (hasTranslation) {
+      return children;
+    }
+    
+    return draft ?? pub ?? children;
+  };
+
+  const displayed = getContent();
   const inputRef = useRef<HTMLInputElement | HTMLTextAreaElement>(null);
 
   useEffect(() => {
@@ -25,8 +47,8 @@ export default function Editable({ path, type = 'text', children, className = ''
   }, [editing]);
 
   if (!editMode) {
-    // When not in edit mode, prioritize published content over children
-    const content = publishedContent[path];
+    // When not in edit mode, prioritize published content over children only in English (or if no translation exists)
+    const content = currentLang === 'en' ? publishedContent[path] : (i18n.exists(path) ? undefined : publishedContent[path]);
     return <>{content !== undefined ? content : children}</>;
   }
 

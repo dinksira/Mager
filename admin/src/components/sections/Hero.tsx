@@ -72,14 +72,29 @@ export default function Hero() {
   return (
     <section className="hero-section" id="home" onClick={handleSlidesClick}>
       <div className="hero-slider" style={editMode ? { cursor: 'pointer' } : undefined}>
-        {activeSlides.map((src, i) => (
-          <img
-            key={`bg-${i}`}
-            src={`${BACKEND_URL}/uploads/${encodeURIComponent(src)}`}
-            alt=""
-            className={`hero-slide-img ${i === current ? 'active' : ''}`}
-          />
-        ))}
+        {activeSlides.map((src, i) => {
+          const isCurrent = i === current;
+          const isNext = i === (current + 1) % activeSlides.length;
+          const isPrev = i === (current - 1 + activeSlides.length) % activeSlides.length;
+          if (!isCurrent && !isNext && !isPrev) return null;
+
+          const getSlideUrl = (s: string) => {
+            if (s.startsWith('images/')) return `/${s}`;
+            if (s.startsWith('modern oficc')) return `/images/${s}`;
+            return `${BACKEND_URL}/uploads/${encodeURIComponent(s)}`;
+          };
+
+          return (
+            <img
+              key={`bg-${i}`}
+              src={getSlideUrl(src)}
+              alt=""
+              className={`hero-slide-img ${isCurrent ? 'active' : ''}`}
+              loading={isCurrent ? 'eager' : 'lazy'}
+              fetchPriority={isCurrent ? 'high' : 'low'}
+            />
+          );
+        })}
         {editMode && <div className="hero-slides-edit-hint">Click to manage slideshow</div>}
       </div>
       <div className="hero-overlay-dark" />

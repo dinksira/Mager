@@ -75,14 +75,29 @@ export default function Hero() {
   return (
     <section className="hero-section" id="home">
       <div className="hero-slider">
-        {activeSlides.map((src, i) => (
-          <img
-            key={`bg-${i}`}
-            src={src.startsWith('images/') ? `/${src}` : `${BACKEND_URL}/uploads/${encodeURIComponent(src)}`}
-            alt=""
-            className={`hero-slide-img ${i === current ? 'active' : ''}`}
-          />
-        ))}
+        {activeSlides.map((src, i) => {
+          const isCurrent = i === current;
+          const isNext = i === (current + 1) % activeSlides.length;
+          const isPrev = i === (current - 1 + activeSlides.length) % activeSlides.length;
+          if (!isCurrent && !isNext && !isPrev) return null;
+
+          const getSlideUrl = (s: string) => {
+            if (s.startsWith('images/')) return `/${s}`;
+            if (s.startsWith('modern oficc')) return `/images/${s}`;
+            return `${BACKEND_URL}/uploads/${encodeURIComponent(s)}`;
+          };
+
+          return (
+            <img
+              key={`bg-${i}`}
+              src={getSlideUrl(src)}
+              alt=""
+              className={`hero-slide-img ${isCurrent ? 'active' : ''}`}
+              loading={isCurrent ? 'eager' : 'lazy'}
+              fetchPriority={isCurrent ? 'high' : 'low'}
+            />
+          );
+        })}
       </div>
       <div className="hero-overlay-dark" />
 

@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, ReactNode } from 'react';
-import { useSession } from 'next-auth/react';
+import { useSession, signOut } from 'next-auth/react';
 import { useRouter, usePathname } from 'next/navigation';
 import Navbar from '@/components/layout/Navbar';
 import ThemeToggle from '@/components/layout/ThemeToggle';
@@ -14,6 +14,18 @@ export default function AdminShell({ children }: { children: ReactNode }) {
   const router = useRouter();
   const pathname = usePathname();
   const { data: session, status } = useSession();
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const navigation = window.performance?.getEntriesByType('navigation');
+      if (navigation && navigation.length > 0) {
+        const type = (navigation[0] as PerformanceNavigationTiming).type;
+        if (type === 'reload') {
+          signOut({ callbackUrl: '/login' });
+        }
+      }
+    }
+  }, []);
 
   useEffect(() => {
     if (status !== 'loading' && !session) {
