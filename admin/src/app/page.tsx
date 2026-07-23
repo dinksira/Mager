@@ -1,94 +1,76 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { useSession, signIn } from 'next-auth/react';
-import Navbar from '@/components/layout/Navbar';
-import ThemeToggle from '@/components/layout/ThemeToggle';
-import Footer from '@/components/layout/Footer';
+import { useTranslation } from 'react-i18next';
+import Link from 'next/link';
+import AdminShell from '@/components/layout/AdminShell';
 import Hero from '@/components/sections/Hero';
-import About from '@/components/sections/About';
-import Services from '@/components/sections/Services';
-import Team from '@/components/sections/Team';
-import Portfolio from '@/components/sections/Portfolio';
-import Ongoing from '@/components/sections/Ongoing';
-import Blog from '@/components/sections/Blog';
-import Contact from '@/components/sections/Contact';
-import ServiceModal from '@/components/modals/ServiceModal';
-import PortfolioModal from '@/components/modals/PortfolioModal';
-import OngoingModal from '@/components/modals/OngoingModal';
-import BlogModal from '@/components/modals/BlogModal';
-import { servicesData } from '@/data/services';
-import { portfolioData } from '@/data/portfolio';
-import { ongoingData } from '@/data/ongoing';
-import { blogData } from '@/data/blog';
-import { EditModeProvider } from '@/contexts/EditModeContext';
-import EditModeToggle from '@/components/admin/EditModeToggle';
-import PublishButton from '@/components/admin/PublishButton';
+import Partners from '@/components/sections/Partners';
+import Testimonials from '@/components/sections/Testimonials';
+import Editable from '@/components/admin/Editable';
 
-function AdminDashboard() {
-  const [serviceModalOpen, setServiceModalOpen] = useState(false);
-  const [serviceIndex, setServiceIndex] = useState(0);
-  const [portfolioModalOpen, setPortfolioModalOpen] = useState(false);
-  const [portfolioIndex, setPortfolioIndex] = useState(0);
-  const [ongoingModalOpen, setOngoingModalOpen] = useState(false);
-  const [ongoingIndex, setOngoingIndex] = useState(0);
-  const [blogModalOpen, setBlogModalOpen] = useState(false);
-  const [blogIndex, setBlogIndex] = useState(0);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.15 });
-    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
+function DashboardHomeInner() {
+  const { t } = useTranslation();
 
   return (
-    <EditModeProvider>
-      <EditModeToggle />
-      <PublishButton />
-      <Navbar themeToggle={<ThemeToggle />} />
-      <main>
-        <Hero />
-        <About />
-        <Services onServiceClick={(i) => { setServiceIndex(i); setServiceModalOpen(true); }} />
-        <Team />
-        <Portfolio onPortfolioClick={(i) => { setPortfolioIndex(i); setPortfolioModalOpen(true); }} />
-        <Ongoing onOngoingClick={(i) => { setOngoingIndex(i); setOngoingModalOpen(true); }} />
-        <Blog onBlogClick={(i) => { setBlogIndex(i); setBlogModalOpen(true); }} />
-        <Contact />
-      </main>
-      <Footer />
-      <ServiceModal isOpen={serviceModalOpen} onClose={() => setServiceModalOpen(false)} data={servicesData[serviceIndex] || null} />
-      <PortfolioModal isOpen={portfolioModalOpen} onClose={() => setPortfolioModalOpen(false)} data={portfolioData[portfolioIndex] || null} />
-      <OngoingModal isOpen={ongoingModalOpen} onClose={() => setOngoingModalOpen(false)} data={ongoingData[ongoingIndex] || null} />
-      <BlogModal isOpen={blogModalOpen} onClose={() => setBlogModalOpen(false)} data={blogData[blogIndex] || null} />
-    </EditModeProvider>
+    <>
+      <Hero />
+
+      <section className="section section--alt" id="home-about">
+        <div className="container" style={{ textAlign: 'center', maxWidth: 640, margin: '0 auto' }}>
+          <div className="section-tag" data-reveal="up"><Editable path="about.sectionTitle">{t('about.sectionTitle')}</Editable></div>
+          <h2 className="section-title" data-reveal="up" style={{ fontSize: '2rem', marginBottom: 24 }}>
+            <Editable path="about.heading">{t('about.heading')}</Editable>
+          </h2>
+          <div data-reveal="up" style={{ color: 'var(--text-muted)', marginBottom: 32, lineHeight: 1.8 }}>
+            <Editable path="about.paragraph1" type="textarea">{t('about.paragraph1')}</Editable>
+          </div>
+          <Link href="/about" className="btn btn-ghost" data-reveal="up"><Editable path="common.learnMore">{t('common.learnMore')}</Editable></Link>
+        </div>
+      </section>
+
+      <section className="section" id="home-services" style={{ padding: '80px 0' }}>
+        <div className="container" style={{ textAlign: 'center' }}>
+          <div className="section-tag" data-reveal="up"><Editable path="services.sectionTitle">{t('services.sectionTitle')}</Editable></div>
+          <h2 className="section-title" data-reveal="up"><Editable path="services.sectionSubtitle">{t('services.sectionSubtitle')}</Editable></h2>
+          <div className="home-services-grid" data-reveal="up">
+            {[0, 1, 2].map(i => (
+              <div key={i} className="service-card">
+                <h3><Editable path={`services.items.${i}.title`}>{t(`services.items.${i}.title`)}</Editable></h3>
+                <div><Editable path={`services.items.${i}.desc`} type="textarea">{t(`services.items.${i}.desc`)}</Editable></div>
+              </div>
+            ))}
+          </div>
+          <Link href="/services" className="btn btn-ghost" data-reveal="up" style={{ marginTop: 40 }}>
+            <Editable path="common.viewAll">{t('common.viewAll')}</Editable>
+          </Link>
+        </div>
+      </section>
+
+      <Partners />
+      <Testimonials />
+
+      <section className="section section--alt" id="home-cta">
+        <div className="container" style={{ textAlign: 'center', maxWidth: 560, margin: '0 auto' }}>
+          <div className="section-tag" data-reveal="up"><Editable path="common.ctaTag">{t('common.ctaTag')}</Editable></div>
+          <h2 className="section-title" data-reveal="up" style={{ fontSize: '2rem', marginBottom: 24 }}>
+            <Editable path="common.ctaTitle">{t('common.ctaTitle')}</Editable>
+          </h2>
+          <div data-reveal="up" style={{ color: 'var(--text-muted)', marginBottom: 32, lineHeight: 1.8 }}>
+            <Editable path="common.ctaText" type="textarea">{t('common.ctaText')}</Editable>
+          </div>
+          <Link href="/contact" className="btn btn-primary" data-reveal="up">
+            <Editable path="common.ctaButton">{t('common.ctaButton')}</Editable>
+          </Link>
+        </div>
+      </section>
+    </>
   );
 }
 
-export default function AdminPage() {
-  const { data: session, status } = useSession();
-
-  if (status === 'loading') {
-    return (
-      <div className="admin-login">
-        <div className="admin-login-card">
-          <h1>Mager<span>.</span></h1>
-          <p>Loading...</p>
-        </div>
-      </div>
-    );
-  }
-
-  if (!session) {
-    signIn();
-    return null;
-  }
-
-  return <AdminDashboard />;
+export default function AdminHomePage() {
+  return (
+    <AdminShell>
+      <DashboardHomeInner />
+    </AdminShell>
+  );
 }

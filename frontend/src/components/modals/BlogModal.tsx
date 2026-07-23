@@ -38,7 +38,6 @@ export default function BlogModal({ isOpen, onClose, data }: BlogModalProps) {
         <div className="modal-content">
           <div className="blog-meta">
             <span>{data.date}</span>
-            <span>{data.readTime}</span>
           </div>
           <h2>{data.title}</h2>
           <div className="blog-author">

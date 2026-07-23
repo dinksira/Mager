@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 40" fill="currentColor">
+  <rect x="0" y="2" width="28" height="28" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+  <text x="13" y="22" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="currentColor" text-anchor="middle">MoE</text>
+  <text x="36" y="22" font-family="'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" letter-spacing="1">Ministry of Education</text>
+</svg>

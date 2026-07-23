@@ -11,6 +11,7 @@ i18n.use(initReactI18next).init({
   ns: ['common'],
   defaultNS: 'common',
   interpolation: { escapeValue: false },
-});
+  bindI18nStore: 'added removed',
+} as any);
 
 export default i18n;

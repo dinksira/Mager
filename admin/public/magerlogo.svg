@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <defs>
+    <clipPath id="circleClip">
+      <circle cx="200" cy="200" r="178"/>
+    </clipPath>
+  </defs>
+
+  <!-- Border ring -->
+  <circle cx="200" cy="200" r="183" fill="#1B2530"/>
+  <!-- Orange face -->
+  <circle cx="200" cy="200" r="178" fill="#FE6812"/>
+
+  <g clip-path="url(#circleClip)">
+    <!-- M pillars -->
+    <rect x="137.5" y="68" width="8" height="152" rx="1.5" fill="#22394A"/>
+    <rect x="254.5" y="68" width="8" height="152" rx="1.5" fill="#22394A"/>
+
+    <!-- M peak (V notch) -->
+    <path d="M 141.5 70 L 200 121 L 258.5 70"
+          fill="none" stroke="#22394A" stroke-width="12"
+          stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- fence bars behind the ring -->
+    <g stroke="#7C948F" stroke-width="4" stroke-linecap="round">
+      <line x1="158" y1="140" x2="158" y2="205"/>
+      <line x1="176" y1="150" x2="176" y2="212"/>
+      <line x1="200" y1="130" x2="200" y2="216"/>
+      <line x1="224" y1="150" x2="224" y2="212"/>
+      <line x1="242" y1="140" x2="242" y2="205"/>
+    </g>
+
+    <!-- ring -->
+    <g fill="none" stroke="#2AA0C4">
+      <ellipse cx="200" cy="176" rx="72" ry="26" stroke-width="5"/>
+      <ellipse cx="200" cy="188" rx="72" ry="22" stroke-width="4"/>
+    </g>
+  </g>
+
+  <!-- registered mark -->
+  <g transform="translate(313,228)">
+    <circle cx="0" cy="0" r="14" fill="none" stroke="#1B2530" stroke-width="2.2"/>
+    <text x="0" y="5.5" font-family="Arial, Helvetica, sans-serif" font-weight="700"
+          font-size="15" fill="#1B2530" text-anchor="middle">R</text>
+  </g>
+
+  <!-- MAGER wordmark -->
+  <text x="200" y="273" font-family="Arial, Helvetica, sans-serif" font-weight="900"
+        font-size="62" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">MAGER</text>
+
+  <!-- Software PLC. -->
+  <text x="200" y="317" font-family="Arial, Helvetica, sans-serif" font-weight="700"
+        font-size="26" fill="#FFFFFF" text-anchor="middle">Software PLC.</text>
+</svg>

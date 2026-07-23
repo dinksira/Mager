@@ -42,11 +42,11 @@ export default function OngoingModal({ isOpen, onClose, data }: OngoingModalProp
           <p className="client">{data.client}</p>
           <div className="ongoing-meta" dangerouslySetInnerHTML={{ __html: data.status }} />
           <p>{data.desc}</p>
-          <TechStack items={data.tech} />
+          <TechStack items={data.tech ?? []} />
           <div className="modal-progress">
             <ProgressBar width={data.progress} label={data.progress} remaining={data.remaining} />
           </div>
-          {data.resources.length > 0 && (
+          {data.resources?.length > 0 && (
             <div className="modal-resources">
               {data.resources.map((r, i) => (
                 <a key={i} href={r.url} target="_blank" dangerouslySetInnerHTML={{ __html: r.icon + r.label }} />

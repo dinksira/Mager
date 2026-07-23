@@ -33,14 +33,20 @@ export default function LoginPage() {
   return (
     <div className="admin-login">
       <div className="admin-login-card">
-        <h1>Mager<span>.</span></h1>
-        <p>Admin Login</p>
+        <div className="admin-login-brand">
+          <img src="/magerlogo.svg" alt="Mager" className="admin-login-brand-img" />
+          <span>Mager <em>Software PLC</em></span>
+        </div>
+        <div className="admin-login-greeting">
+          Welcome <span>back</span>
+        </div>
+        <p className="admin-login-desc">Sign in to manage your site content</p>
         <form onSubmit={handleSubmit}>
-          <input name="email" type="email" placeholder="Email" required />
+          <input name="email" type="email" placeholder="Email address" required />
           <input name="password" type="password" placeholder="Password" required />
           {error && <p className="admin-login-error">{error}</p>}
-          <button type="submit" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }} disabled={loading}>
-            {loading ? 'Signing in...' : 'Sign In'}
+          <button type="submit" className="btn btn-primary" disabled={loading}>
+            {loading ? 'Signing in\u2026' : 'Sign In'}
           </button>
         </form>
       </div>
